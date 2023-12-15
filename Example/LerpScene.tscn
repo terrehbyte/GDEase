@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://gfano6la4pau"]
+
+[ext_resource type="Script" path="res://Example/LerpTest.gd" id="1_7cgkr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("timeElapsed", "lerpRight", "rightLabel", "rightStatus", "lerpWrong", "wrongLabel", "wrongStatus")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -24.0
+offset_right = 250.0
+offset_bottom = 41.42
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7cgkr")
+timeElapsed = NodePath("Label")
+lerpRight = NodePath("LinearContainer/LerpRight")
+rightLabel = NodePath("LinearContainer/Label")
+rightStatus = NodePath("LinearContainer/LerpRight/Value")
+lerpWrong = NodePath("WrongContainer/LerpWrong")
+wrongLabel = NodePath("WrongContainer/Label")
+wrongStatus = NodePath("WrongContainer/LerpWrong/Value")
+endValue = 1.0
+lerpDuration = 3.0
+completeFudge = 0.5
+allowFudge = false
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Time"
+
+[node name="LinearContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Type" type="Label" parent="VBoxContainer/LinearContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Linear"
+horizontal_alignment = 2
+
+[node name="LerpRight" type="ProgressBar" parent="VBoxContainer/LinearContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+show_percentage = false
+
+[node name="Value" type="Label" parent="VBoxContainer/LinearContainer/LerpRight"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/LinearContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "00.00"
+horizontal_alignment = 2
+
+[node name="WrongContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/WrongContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Wrong L."
+horizontal_alignment = 2
+
+[node name="LerpWrong" type="ProgressBar" parent="VBoxContainer/WrongContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+show_percentage = false
+
+[node name="Value" type="Label" parent="VBoxContainer/WrongContainer/LerpWrong"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/WrongContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "00.00"
+horizontal_alignment = 2
