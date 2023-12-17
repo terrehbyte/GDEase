@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtag2eyc6d5gu"]
+
+[ext_resource type="Script" path="res://EasingDemo.gd" id="1_lieqa"]
+[ext_resource type="Script" path="res://Line.gd" id="2_8xdl7"]
+[ext_resource type="Script" path="res://LinePosition.gd" id="3_3laaj"]
+
+[sub_resource type="Resource" id="Resource_gl4h6"]
+script = ExtResource("3_3laaj")
+position = Vector2(0, 0)
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_ndrtq"]
+script = ExtResource("3_3laaj")
+position = Vector2(1, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("line", "knob")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lieqa")
+line = NodePath("Line")
+knob = NodePath("Knob")
+
+[node name="Line" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_8xdl7")
+positions = Array[ExtResource("3_3laaj")]([SubResource("Resource_gl4h6"), SubResource("Resource_ndrtq")])
+is_relative_to_size = true
+
+[node name="Knob" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="KnobVisual" type="ColorRect" parent="Knob"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+pivot_offset = Vector2(5, 5)
