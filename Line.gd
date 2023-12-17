@@ -53,6 +53,10 @@ func _refresh_packed_arrays() -> void:
 		_packedColors.append(col)
 
 func _ready():
+	if size == Vector2.ZERO:
+		# HACK: wait for the next frame to get the correct size - children run before parents
+		print_verbose("Line: Size is zero, possibly need to wait for the next frame to get the correct size.")
+		await get_tree().process_frame
 	_refresh_packed_arrays()
 
 func _process(_delta):
@@ -63,6 +67,7 @@ func _draw():
 	# HACK: always refresh the packed arrays in editor
 	if Engine.is_editor_hint():
 		_refresh_packed_arrays()
+		pass
 
 	if _packedPositions.size() > 1:
 		draw_polyline_colors(_packedPositions, _packedColors, width, use_anti_aliasing)
