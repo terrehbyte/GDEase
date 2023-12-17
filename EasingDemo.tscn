@@ -26,6 +26,8 @@ grow_vertical = 2
 script = ExtResource("1_lieqa")
 line = NodePath("Line")
 knob = NodePath("Knob")
+segments = 50
+ease_func = 0
 
 [node name="Line" type="Control" parent="."]
 layout_mode = 1
