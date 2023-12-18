@@ -10,19 +10,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" parent="." instance=ExtResource("1_ddie0")]
+[node name="White Background" type="ColorRect" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Control2" parent="." node_paths=PackedStringArray("line", "knob") instance=ExtResource("1_ddie0")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-line = NodePath("../Control/Line")
-knob = NodePath("../Control/Knob")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(768, 512)
+alignment = 1
 
-[node name="Line" parent="Control2" index="0"]
-offset_left = 636.0
-offset_top = 8.0
-offset_right = 636.0
-offset_bottom = 8.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[editable path="Control"]
-[editable path="Control2"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" parent="HBoxContainer/HBoxContainer/AspectRatioContainer" instance=ExtResource("1_ddie0")]
+layout_mode = 2
+size_flags_horizontal = 3
+ease_func = 2
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" parent="HBoxContainer/HBoxContainer/AspectRatioContainer2" instance=ExtResource("1_ddie0")]
+layout_mode = 2
+size_flags_horizontal = 3
+ease_func = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" parent="HBoxContainer/HBoxContainer/AspectRatioContainer3" instance=ExtResource("1_ddie0")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[editable path="HBoxContainer/HBoxContainer/AspectRatioContainer/Control"]
